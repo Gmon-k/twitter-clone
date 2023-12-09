@@ -1,0 +1,65 @@
+/* Welcome.css */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100%;
+}
+
+.left-panel {
+  flex: 35%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #1da1f2; /* Twitter blue */
+  color: rgb(255, 255, 255);
+  height: 100vh;
+}
+
+.user-details {
+  margin-top: 10px;
+}
+
+.right-panel {
+  flex: 65%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.update-section {
+  margin-top: 20px;
+}
+
+.update-section h2 {
+  margin-bottom: 10px;
+}
+
+.update-section label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Welcome.css */
+
+.update-section input {
+  width: 80%; /* Use 100% width to fill the container */
+  padding: 12px; /* Adjust padding for better appearance */
+  margin-bottom: 10px;
+  border: 1px solid #1da1f2; /* Add a border */
+  border-radius: 4px; /* Add border-radius for rounded corners */
+  box-sizing: border-box; /* Ensure padding and border are included in the total width */
+  font-size: 14px; /* Adjust font size */
+}
+
+
+.update-section button {
+  background-color: #1da1f2;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+}

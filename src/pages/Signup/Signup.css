@@ -1,0 +1,72 @@
+/* Signup.css (you can create a separate CSS file for signup or include it in your existing CSS file) */
+
+.signup-container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-side {
+    width: 70%;
+    background: url('src/Images/bg.png') center/cover no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+.right-side {
+    width: 30%;
+    padding: 20px;
+    background: #ffffff; /* Light grey background for the right side */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+    width: 50%;
+    height: 50px; /* Set a specific height for better visualization */
+    background: url('src/Images/logo.png') center/contain no-repeat;
+    box-sizing: border-box; /* Include the border in the overall width and height */
+}
+
+.form-container {
+    width: 80%;
+}
+
+.label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px; /* Adjust the font size for labels */
+}
+
+.input-field {
+    padding: 8px; /* Adjust the padding for smaller input boxes */
+    margin-bottom: 10px; /* Adjust the margin for smaller input boxes */
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Adjust the border radius for smaller input boxes */
+    width: 100%;
+    font-size: 14px; /* Adjust the font size for input fields */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-button {
+    background-color: #1da1f2;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}

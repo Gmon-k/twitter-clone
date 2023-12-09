@@ -1,0 +1,78 @@
+/* Login.css */
+
+body {
+    margin: 0;
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-side {
+    width: 70%;
+    background: url('src/Images/bg.png') center/cover no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+.right-side {
+    .right-side {
+        width: 30%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    } 
+}
+
+.logo-container {
+    margin-bottom: 20px;
+    width: 50%;
+    height: 50px; /* Set a specific height for better visualization */
+    background: url('src/Images/logo.png') center/contain no-repeat;
+    box-sizing: border-box; /* Include the border in the overall width and height */
+}
+
+.form-container {
+    width: 80%;
+}
+
+.username-label,
+.password-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-field {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-button,
+.create-account-button {
+    background-color: #1da1f2;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px; /* Adjust the border radius */
+    cursor: pointer;
+}
+
+.create-account-button {
+    background-color: transparent;
+    color: #1da1f2;
+    margin-top: 10px;
+}
