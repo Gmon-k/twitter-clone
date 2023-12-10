@@ -15,4 +15,7 @@ export default defineConfig({
       overlay: false,
     },
   },
+  build: {
+    outDir: 'dist', // Specify the output directory for the production build
+  },
 });
