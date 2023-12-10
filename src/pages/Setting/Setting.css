@@ -1,8 +1,11 @@
 /* Welcome.css */
 
-html, body {
+
+
+.welcome-conatiner {
   height: 100%;
   margin: 0;
+  background-color: #fff;
 }
 
 .container {

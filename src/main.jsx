@@ -9,8 +9,9 @@ import {
   Route,
 } from "react-router-dom";
 import Login from './pages/Login/Login.jsx';
-import Welcome from './pages/Welcome/Welcome.jsx';
+import Setting from './pages/Setting/Setting.jsx';
 import Signup from './pages/Signup/Signup.jsx'
+import Profile from './pages/Profile/Profile.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,12 +22,16 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: '/welcome',
-    element: <Welcome />
+    path: '/setting',
+    element: <Setting />
   },
   {
     path: '/signup',
     element: <Signup />
+  },
+  {
+    path: '/profile',
+    element: <Profile/>
   }
 ]);
 

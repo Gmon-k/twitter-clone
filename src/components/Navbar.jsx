@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import twitterLogo from '../Images/logo.png';
 
-import './Styles/Navbar.css';
+import './StylesFolder/Navbar.css';
 
 const NavBar = () => {
   const [userDetails, setUserDetails] = useState({});
@@ -48,7 +48,7 @@ const NavBar = () => {
               <img
                 src={`data:image/png;base64,${userDetails.profilePic}`}
                 alt="Profile Pic"
-                className="profile-pic"
+                className="profile-pic-navbar"
               />
               <span className="username">{userDetails.username}</span>
             </div>
@@ -66,8 +66,8 @@ const NavBar = () => {
             <Link to="/" className="nav-link">
               Home
             </Link>
-            <Link to="/tweet" className="nav-link">
-              Tweet
+            <Link to="/profile" className="nav-link" onClick={() => navigate('/profile')}>
+              Profile
             </Link>
             <Link to="/logout" className="nav-link" onClick={logOut}>
               Logout

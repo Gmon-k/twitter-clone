@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router';
 
 import NavBar from '../../components/Navbar';
 
-import './Welcome.css';
+import './Setting.css';
 
-function Welcome() {
+function Setting() {
   const navigate = useNavigate();
 
   const [userName, setUsername] = useState('');
@@ -77,7 +77,7 @@ function Welcome() {
 
 
   return (
-    <div>
+    <div className='welcome-conatiner'>
       <NavBar />
       <div className="container">
         <div className="left-panel">
@@ -93,7 +93,7 @@ function Welcome() {
           <h3>
             <p>First Name: {userDetails.firstName}</p>
             <p>Last Name: {userDetails.lastName}</p>
-            <p>Joined on: {new Date(userDetails.createdTime).toLocaleString()}</p>
+            <p>Joined on {new Date(userDetails.createdTime).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
             <p>Bio: {userDetails.bio}</p>
           </h3>
           </div>
@@ -122,4 +122,4 @@ function Welcome() {
 }
 
 
-export default Welcome;
+export default Setting;

@@ -3,7 +3,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import "./Login.css"; // Import the CSS file
+import "./Login.css";
 
 export default function Login() {
   const [loginFormState, setLoginFormState] = useState({});

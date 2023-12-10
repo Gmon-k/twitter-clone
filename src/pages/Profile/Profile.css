@@ -1,0 +1,67 @@
+
+body{
+    background-color: #1DA1F2;
+}
+.profile-conatiner{
+    background-color: #1DA1F2;
+    margin: 0; 
+  }
+
+  .container-split {
+    display: flex;
+    min-height: 100%;
+  }
+  
+  
+  .left-panel-profile {
+    width: 40%;
+    box-sizing: border-box;
+     /* Left panel background color */
+
+  }
+
+  .white-box {
+    background-color: white;
+    border-radius: 10px; /* Adjust the value to change the curve of the edges */
+    box-shadow: 0 0 10px rgba(29, 68, 87, 0.1); /* Adjust the shadow properties */
+    padding: 20px; /* Adjust the padding as needed */
+    margin-top: 20px;
+    margin-left: 20px; /* Distance from the NavBar */
+    margin-right: 20px;
+    width:65% /* Distance from the right side */
+  }
+
+  .oval-image {
+    margin-top: 20px;
+    margin-left: 30%;
+    border-radius: 70%; /* Creates an oval shape */
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    object-fit: cover; /* Maintain aspect ratio and cover the content area */
+  }
+
+  .profile-text-content{
+    display: flex; /* Use flexbox to center text vertically */
+    flex-direction: column; /* Stack text vertically */
+    align-items: center; /
+  }
+
+  .button-profile {
+    background-color: #1DA1F2;  /* Twitter blue color */
+    color: #ffffff;  /* White text */
+    padding: 8px 16px;
+    border: none;
+    border-radius: 9999px;  /* Border radius to make it a rounded button */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button-profile:hover {
+    background-color: #1990E5;  /* Darker shade on hover */
+}
+  
+.right-panel-profile {
+    width: 60%;
+    box-sizing: border-box;
+  
+}
