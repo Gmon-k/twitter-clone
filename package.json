@@ -1,7 +1,7 @@
 {
   "name": "cs5610_fall23_project3",
   "version": "1.0.0",
-  "description": "After you clone the repository, run `npm install` in the root",
+  "description": "",
   "main": "server.js",
   "proxy": "http://localhost:3500",
   "scripts": {
@@ -9,7 +9,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "prod": "node server.js"
   },
   "author": "",
   "license": "ISC",
