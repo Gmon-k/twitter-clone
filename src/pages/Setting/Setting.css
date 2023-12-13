@@ -66,3 +66,37 @@
   cursor: pointer;
   border-radius: 12px;
 }
+
+
+.white-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-pic-tweet {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-names {
+  display: flex;
+  flex-direction: column;
+}
+
+.timestamp {
+  font-style: italic;
+  color: #888;
+}
+
+
+

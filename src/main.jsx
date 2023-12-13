@@ -12,6 +12,7 @@ import Login from './pages/Login/Login.jsx';
 import Setting from './pages/Setting/Setting.jsx';
 import Signup from './pages/Signup/Signup.jsx'
 import Profile from './pages/Profile/Profile.jsx';
+import Home from './pages/Home/Home.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: '/setting',
+    path: '/setting/:username',
     element: <Setting />
   },
   {
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
     element: <Signup />
   },
   {
-    path: '/profile',
+    path: '/home/:username',
+    element: <Home />
+  },
+  {
+    path: '/profile/:username',
     element: <Profile/>
   }
 ]);

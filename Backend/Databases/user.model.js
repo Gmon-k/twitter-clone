@@ -12,6 +12,8 @@ function getUserByUsername(username) {
     return UserModel.findOne({username: username}).exec();
 }
 
+
+
 module.exports = {
     insertUser,
     getUserByUsername,

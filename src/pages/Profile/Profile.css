@@ -25,10 +25,10 @@ body{
     border-radius: 10px; /* Adjust the value to change the curve of the edges */
     box-shadow: 0 0 10px rgba(29, 68, 87, 0.1); /* Adjust the shadow properties */
     padding: 20px; /* Adjust the padding as needed */
-    margin-top: 20px;
-    margin-left: 20px; /* Distance from the NavBar */
+    margin-top: 5px;
+    margin-left: 15px; /* Distance from the NavBar */
     margin-right: 20px;
-    width:65% /* Distance from the right side */
+    width:75% /* Distance from the right side */
   }
 
   .oval-image {
@@ -64,4 +64,41 @@ body{
     width: 60%;
     box-sizing: border-box;
   
+}
+
+.oval-image-tweet {
+  margin-left: 5%;
+  border-radius: 40%; /* Creates an oval shape */
+  width: 20px; /* Adjust the width as needed */
+  height: 20px; /* Adjust the height as needed */
+  object-fit: cover; /* Maintain aspect ratio and cover the content area */
+}
+
+.post-image-tweet {
+  max-width: 80%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.timestamp-tweet {
+  font-style: italic;
+  color: #888;
+}
+
+
+.button-update-profile {
+  background-color: #1DA1F2;  /* Twitter blue color */
+  color: #ffffff;  /* White text */
+  padding: 8px 16px;
+  border: none;
+  font-size: 12px;
+  border-radius: 9999px;  /* Border radius to make it a rounded button */
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.button-update-profile:hover {
+  background-color: #1990E5;  /* Darker shade on hover */
 }

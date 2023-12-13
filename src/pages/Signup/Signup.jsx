@@ -55,7 +55,8 @@ export default function Signup() {
     async function submitSignup() {
         try {
             const response = await axios.post('/api/user/signup', signupFormState);
-            navigate('/welcome');
+            const { username } = response.data;
+            navigate(`/profile/${username}`);
         } catch (err) {
             setErrorDetailsState("Issue signing up, please try again :)");
         }

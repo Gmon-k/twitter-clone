@@ -6,8 +6,11 @@ import NavBar from '../../components/Navbar';
 
 import './Setting.css';
 
+import { useParams} from 'react-router-dom';
+
 function Setting() {
   const navigate = useNavigate();
+  const { username } = useParams();
 
   const [userName, setUsername] = useState('');
   const [userDetails, setUserDetails] = useState({});
@@ -48,7 +51,7 @@ function Setting() {
 
   async function getUserDetails() {
     try {
-      const response = await axios.get('/api/user/getUserDetails');
+      const response = await axios.get(`/api/user/getUserDetails/${username}`);
 
       if (response.status === 200) {
         setUserDetails(response.data);
@@ -64,16 +67,6 @@ function Setting() {
     getUsername();
     getUserDetails();
   }, []);
-
-  async function logOut() {
-    try {
-      await axios.post('/api/user/logout', {});
-      navigate('/login');
-    } catch (error) {
-      console.error('Error logging out:', error);
-    }
-  }
-
 
 
   return (

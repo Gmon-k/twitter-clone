@@ -6,6 +6,11 @@ const upload = multer({ dest: 'uploads/' });
 const path = require('path');
 const fs = require('fs');
 
+const defaultProfilePicPath = 'src/Images/default_pro_pic.png';
+const defaultProfilePicBuffer = fs.readFileSync(defaultProfilePicPath);
+const defaultProfilePicBase64 = defaultProfilePicBuffer.toString('base64');
+
+
 
 router.post('/login', async function(request, response) {
     const body = request.body;
@@ -49,16 +54,17 @@ router.post('/login', async function(request, response) {
 
 
 // Retrieve all user details (except password) by username
-router.get('/getUserDetails', async function(request, response) {
-  const username = request.cookies.username;
+router.get('/getUserDetails/:username', async function(request, response) {
+  const requestedUsername = request.params.username;
 
-  if (!username) {
-    response.status(401).json({ error: "User not logged in" });
+  if (!requestedUsername) {
+    response.status(400).json({ error: "Incomplete request" });
     return;
   }
 
   try {
-    const user = await UserAccessor.getUserByUsername(username);
+    const user = await UserAccessor.getUserByUsername(requestedUsername);
+
     if (user) {
       // Create a copy of the user object without the password
       const userDetails = { ...user.toObject() };
@@ -73,6 +79,7 @@ router.get('/getUserDetails', async function(request, response) {
     response.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 
 
 
@@ -105,6 +112,7 @@ router.post('/signup', async function(request, response) {
             firstName: firstName,
             lastName: lastName,
             bio: "insert your bio here",
+            profilePic: defaultProfilePicBase64
         };
 
         const createdUser = await UserAccessor.insertUser(newUser);
@@ -153,52 +161,67 @@ router.get('/isLoggedIn', function(request, response) {
     });
 });
 
-
-
-// Import necessary modules and files
-
-// ... (existing code)
-
 router.post('/updateUserDetails', upload.single('profilePic'), async function (request, response) {
-  const username = request.cookies.username;
-  const { bio } = request.body;
+    const username = request.cookies.username;
+    const { bio } = request.body;
+  
+    if (!username) {
+      response.status(401).json({ error: "User not logged in" });
+      return;
+    }
+  
+    try {
+      const user = await UserAccessor.getUserByUsername(username);
+      if (user) {
+  
+        user.bio = bio || user.bio;
+  
+  
+        if (request.file) {
+  
+          const imageBase64 = fs.readFileSync(request.file.path, { encoding: 'base64' });
+  
+  
+          user.profilePic = imageBase64;
+  
+          fs.unlinkSync(request.file.path);
+        }
+  
+        await user.save();
+  
+        response.status(200).json({ message: "User details updated successfully" });
+      } else {
+        response.status(404).json({ error: "User not found" });
+      }
+    } catch (error) {
+      console.error(error);
+      response.status(500).json({ error: "Internal Server Error" });
+    }
+  });
 
-  if (!username) {
-    response.status(401).json({ error: "User not logged in" });
-    return;
-  }
+  router.get('/searchUsers', async function (request, response) {
+  const query = request.query.query;
 
   try {
-    const user = await UserAccessor.getUserByUsername(username);
-    if (user) {
-      // Update user details
-      user.bio = bio || user.bio;
-
-      // Check if a file is uploaded
-      if (request.file) {
-        // Convert the image to base64
-        const imageBase64 = fs.readFileSync(request.file.path, { encoding: 'base64' });
-
-        // Save the base64 string to the profilePic field
-        user.profilePic = imageBase64;
-
-        // Remove the uploaded file (optional, depending on your requirements)
-        fs.unlinkSync(request.file.path);
-      }
-
-      // Save the updated user details
-      await user.save();
-
-      response.status(200).json({ message: "User details updated successfully" });
-    } else {
-      response.status(404).json({ error: "User not found" });
+    if (!query) {
+      response.status(400).json({ error: 'Incomplete request' });
+      return;
     }
+
+    const searchResults = await UserAccessor.searchUsers(query);
+    const formattedResults = searchResults.map((user) => ({
+      id: user._id,
+      username: user.username,
+      // ... other user details
+    }));
+
+    response.status(200).json(formattedResults);
   } catch (error) {
     console.error(error);
-    response.status(500).json({ error: "Internal Server Error" });
+    response.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-// ... (existing code)
+
 
 module.exports = router;

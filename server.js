@@ -1,5 +1,6 @@
 const express = require('express');
 const userApi = require('./Backend/API/user.server');
+const tweetApi =require('./Backend/API/tweet.server');
 const cors = require('cors')
 const mongoose = require('mongoose');
 const path = require('path')
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/api/user', userApi);
+app.use('/api/tweet',tweetApi)
 
 const MONGO_CONNECTION_STRING = 'mongodb+srv://gmon:gmonk@cluster0.rdeco0w.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(MONGO_CONNECTION_STRING, { useNewUrlParser: true });

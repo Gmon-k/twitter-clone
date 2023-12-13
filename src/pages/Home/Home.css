@@ -1,0 +1,23 @@
+.white-box-home {
+    max-width: 600px;
+    margin-left: 20%;
+    margin-top: 10px;
+    width:105%;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin-left: 19%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .tweet-box-home {
+    background-color: white;
+    border-radius: 10px; /* Adjust the value to change the curve of the edges */
+    box-shadow: 0 0 10px rgba(29, 68, 87, 0.1); /* Adjust the shadow properties */
+    padding: 20px; /* Adjust the padding as needed */
+    margin-top: 5px;
+    width:73%;
+    margin-left: 15%; /* Distance from the NavBar */
+    margin-right: 20px;
+    width:60% /* Distance from the right side */
+  }

@@ -6,15 +6,29 @@ import twitterLogo from '../Images/logo.png';
 
 import './StylesFolder/Navbar.css';
 
+import { useParams} from 'react-router-dom';
+
 const NavBar = () => {
+  const { username } = useParams();
   const [userDetails, setUserDetails] = useState({});
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [loggedInUser, setLoggedInUser] = useState({});
 
   useEffect(() => {
     const fetchUserDetails = async () => {
+      const isLoggedInResponse = await axios.get('/api/user/isLoggedIn');
+      const loggedInUsername = isLoggedInResponse.data.username;
+
+      if (!isLoggedInResponse.data.isLoggedIn) {
+        // If the user is not logged in, redirect to the login page or handle as needed
+        navigate('/login');
+        return;
+      }
+
+      setLoggedInUser(loggedInUsername);
       try {
-        const response = await axios.get('/api/user/getUserDetails');
+        const response = await axios.get(`/api/user/getUserDetails/${loggedInUser}`);
         setUserDetails(response.data);
       } catch (error) {
         console.error('Error fetching user details:', error);
@@ -24,7 +38,7 @@ const NavBar = () => {
     };
 
     fetchUserDetails();
-  }, []); 
+  }, [loggedInUser]); 
 
   async function logOut() {
     try {
@@ -63,12 +77,13 @@ const NavBar = () => {
             </Link>
           </div>
           <div className="navbar-right">
-            <Link to="/" className="nav-link">
+            <Link to= {`/home/${loggedInUser}`} className="nav-link" onClick={() => navigate(`/home/${loggedInUser}`)}>
               Home
             </Link>
-            <Link to="/profile" className="nav-link" onClick={() => navigate('/profile')}>
-              Profile
+            <Link to={`/profile/${loggedInUser}`} className="nav-link" onClick={() => navigate(`/profile/${loggedInUser}`)}>
+            Profile
             </Link>
+
             <Link to="/logout" className="nav-link" onClick={logOut}>
               Logout
             </Link>
