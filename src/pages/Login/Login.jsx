@@ -36,7 +36,7 @@ export default function Login() {
     try {
       const response = await axios.post('/api/user/login',loginFormState)
       const username = response.data.username;
-      navigate(`/home/${username}`);
+      navigate(`/profile/${username}`);
     } catch (err) {
       setErrorDetailsState("Issue logging in, please try again :)");
     }
@@ -53,11 +53,11 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <div className="left-side-login">
+      <div className="left-side">
         {/* Add background image styling here */}
       </div>
-      <div className="right-side-login">
-        <div className="logo-container-login">
+      <div className="right-side">
+        <div className="logo-container">
           {/* Add your logo image */}
         </div>
         <div className="form-container">

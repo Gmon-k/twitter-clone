@@ -9,7 +9,7 @@ body {
     height: 100vh;
 }
 
-.left-side-login {
+.left-side {
     width: 70%;
     background: url('src/Images/bg.png') center/cover no-repeat;
     margin: 0;
@@ -19,7 +19,7 @@ body {
     align-items: center; /* Center the content vertically */
 }
 
-.right-side-login {
+.right-side {
     .right-side {
         width: 30%;
         padding: 20px;
@@ -30,7 +30,7 @@ body {
     } 
 }
 
-.logo-container-login {
+.logo-container {
     margin-bottom: 20px;
     width: 50%;
     height: 50px; /* Set a specific height for better visualization */
