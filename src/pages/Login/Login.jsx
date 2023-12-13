@@ -53,11 +53,11 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <div className="left-side">
+      <div className="left-side-login">
         {/* Add background image styling here */}
       </div>
-      <div className="right-side">
-        <div className="logo-container">
+      <div className="right-side-login">
+        <div className="logo-container-login">
           {/* Add your logo image */}
         </div>
         <div className="form-container">
