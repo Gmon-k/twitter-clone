@@ -1,5 +1,5 @@
 const Schema = require('mongoose').Schema;
-
+//Schema for users
 exports.UserSchema = new Schema({
     username: {
         type: String,

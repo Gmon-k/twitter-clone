@@ -1,13 +1,11 @@
-// NavBar.jsx
+
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import twitterLogo from '../Images/logo.png';
-
 import './StylesFolder/Navbar.css';
-
-import { useParams} from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
+//Components for the nav bar
 const NavBar = () => {
   const { username } = useParams();
   const [userDetails, setUserDetails] = useState({});
@@ -16,16 +14,14 @@ const NavBar = () => {
   const [loggedInUser, setLoggedInUser] = useState({});
 
   useEffect(() => {
+    //function fetch the user details
     const fetchUserDetails = async () => {
       const isLoggedInResponse = await axios.get('/api/user/isLoggedIn');
       const loggedInUsername = isLoggedInResponse.data.username;
-
       if (!isLoggedInResponse.data.isLoggedIn) {
-        // If the user is not logged in, redirect to the login page or handle as needed
         navigate('/login');
         return;
       }
-
       setLoggedInUser(loggedInUsername);
       try {
         const response = await axios.get(`/api/user/getUserDetails/${loggedInUser}`);
@@ -36,10 +32,9 @@ const NavBar = () => {
         setLoading(false);
       }
     };
-
     fetchUserDetails();
-  }, [loggedInUser]); 
-
+  }, [loggedInUser]);
+  //funciton to logout
   async function logOut() {
     try {
       await axios.post('/api/user/logout', {});
@@ -48,9 +43,7 @@ const NavBar = () => {
       console.error('Error logging out:', error);
     }
   }
-  
-  // The empty dependency array ensures that the effect runs only once on mount
-
+  //HTML content for the page
   return (
     <div className="navbar">
       {loading ? (
@@ -77,11 +70,11 @@ const NavBar = () => {
             </Link>
           </div>
           <div className="navbar-right">
-            <Link to= {`/home/${loggedInUser}`} className="nav-link" onClick={() => navigate(`/home/${loggedInUser}`)}>
+            <Link to={`/home/${loggedInUser}`} className="nav-link" onClick={() => navigate(`/home/${loggedInUser}`)}>
               Home
             </Link>
             <Link to={`/profile/${loggedInUser}`} className="nav-link" onClick={() => navigate(`/profile/${loggedInUser}`)}>
-            Profile
+              Profile
             </Link>
 
             <Link to="/logout" className="nav-link" onClick={logOut}>
@@ -93,5 +86,4 @@ const NavBar = () => {
     </div>
   );
 };
-
 export default NavBar;

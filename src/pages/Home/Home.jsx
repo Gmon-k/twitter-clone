@@ -6,37 +6,30 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
-
+//pages for the home
 function Home() {
   const { username } = useParams();
   const navigate = useNavigate();
-  const [tweets, setTweets] = useState([]);
-  const [userDetails, setUserDetails] = useState({});
-  const [updateTweetStates, setUpdateTweetStates] = useState({});
-  const [loggedInUser, setLoggedInUser] = useState({});
-
+  const [tweets, setTweets] = useState([]); //use state for tweets
+  const [userDetails, setUserDetails] = useState({}); //use state for userdetails
+  const [updateTweetStates, setUpdateTweetStates] = useState({}); //use state for updating tweet
+  const [loggedInUser, setLoggedInUser] = useState({}); //usestate for loggedinuser
   useEffect(() => {
-    const fetchUserDetails = async () => {
+    const fetchUserDetails = async () => {  //function fetch details
       const isLoggedInResponse = await axios.get('/api/user/isLoggedIn');
       const loggedInUsername = isLoggedInResponse.data.username;
-
-      if (!isLoggedInResponse.data.isLoggedIn) {
-        // If the user is not logged in, redirect to the login page or handle as needed
+      if (!isLoggedInResponse.data.isLoggedIn) { //check if it is a logged in response
         navigate('/login');
         return;
       }
-
       setLoggedInUser(loggedInUsername);
-
       if (!username) {
-        // If username is not provided, redirect to home or handle as needed
         navigate('/home');
         return;
       }
       try {
         const response = await axios.get(`/api/user/getUserDetails/${username}`);
         setUserDetails(response.data);
-
         const tweetResponse = await axios.get(`/api/tweet/getTweetsByUsername/${username}`);
         const sortedTweets = tweetResponse.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         setTweets(sortedTweets);
@@ -44,14 +37,12 @@ function Home() {
         console.error('Error fetching user details:', error);
       }
     };
-
     fetchUserDetails();
-
+    //function  to fetch all the tweets
     const fetchAllTweets = async () => {
       try {
         const userResponse = await axios.get(`/api/user/getUserDetails/${username}`);
         setUserDetails(userResponse.data);
-
         const tweetResponse = await axios.get('/api/tweet/getAllTweets');
         const sortedTweets = tweetResponse.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         setTweets(sortedTweets);
@@ -59,10 +50,9 @@ function Home() {
         console.error('Error fetching tweets:', error);
       }
     };
-
     fetchAllTweets();
   }, [username, loggedInUser, navigate]);
-
+  //function to format the timestamp
   const formatTimestamp = (timestamp) => {
     const date = new Date(timestamp);
     const hours = date.getHours();
@@ -75,7 +65,7 @@ function Home() {
       } ${day} ${month} ${year}`;
     return formattedTimestamp;
   };
-
+ //function to delete tweet
   const deleteTweet = async (tweetId) => {
     try {
       await axios.delete(`/api/tweet/deleteTweet/${tweetId}`);
@@ -86,21 +76,21 @@ function Home() {
       console.error('Error deleting tweet:', error);
     }
   };
-
+ //function to open a form updating the tweet
   const openUpdateForm = (tweetId, tweetText) => {
     setUpdateTweetStates((prevStates) => ({
       ...prevStates,
       [tweetId]: { isOpen: true, tweetText, tweetImage: null },
     }));
   };
-
+//function to close update form
   const closeUpdateForm = (tweetId) => {
     setUpdateTweetStates((prevStates) => ({
       ...prevStates,
       [tweetId]: { isOpen: false, tweetText: "", tweetImage: null },
     }));
   };
-
+  //function to submit the form
   const submitUpdateForm = async (tweetId) => {
     try {
       const formData = new FormData();
@@ -122,14 +112,14 @@ function Home() {
       console.error('Error updating tweet:', error);
     }
   };
-
+ //HTML side of the home page
   return (
     <div>
       <NavBar />
       <div className="home-container">
-        <div className="tweets-container">
+        <div >
           <div className='white-box-home'><Tweet /></div>
-          <div>
+          <div className="tweets-container"> 
             {tweets.map((tweet) => (
               <div key={tweet._id} className='tweet-box-home'>
                 <p>
@@ -183,5 +173,4 @@ function Home() {
     </div>
   );
 }
-
 export default Home;

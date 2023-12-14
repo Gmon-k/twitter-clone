@@ -4,7 +4,7 @@ import NavBar from '../../components/Navbar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-
+//pages for the profile of the each user
 function Profile() {
   const { username } = useParams();
   const navigate = useNavigate();
@@ -12,24 +12,13 @@ function Profile() {
   const [tweets, setTweets] = useState([]);
   const [updateTweetStates, setUpdateTweetStates] = useState({});
   const [loggedInUser, setLoggedInUser] = useState({});
-
-
   useEffect(() => {
-
-    const fetchUserDetails = async () => {
+    const fetchUserDetails = async () => { //fucntion fetch user details
       const isLoggedInResponse = await axios.get('/api/user/isLoggedIn');
       const loggedInUsername = isLoggedInResponse.data.username;
-
-      if (!isLoggedInResponse.data.isLoggedIn) {
-        // If the user is not logged in, redirect to the login page or handle as needed
-        navigate('/login');
-        return;
-      }
-
+  
       setLoggedInUser(loggedInUsername);
-
       if (!username) {
-        // If username is not provided, redirect to home or handle as needed
         navigate('/home');
         return;
       }
@@ -44,22 +33,15 @@ function Profile() {
         console.error('Error fetching user details:', error);
       }
     };
-
     fetchUserDetails();
     console.log('logged in as:', loggedInUser)
-
   }, [username, loggedInUser, navigate]);
 
-  if (!userDetails.username) {
+  if (!userDetails.username) {      //function to check the user details
     console.log('User details not yet populated');
-
-    // Handle the case when userDetails is not yet populated
     return <div>Loading...</div>;
   }
-
-
-
-
+   //function to format the time stamp
   const formatTimestamp = (timestamp) => {
     const date = new Date(timestamp);
     const hours = date.getHours();
@@ -67,12 +49,11 @@ function Profile() {
     const day = date.getDate();
     const month = date.toLocaleString('default', { month: 'short' });
     const year = date.getFullYear();
-
     const formattedTimestamp = `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${hours >= 12 ? 'pm' : 'am'
       } ${day} ${month} ${year}`;
     return formattedTimestamp;
   };
-
+  //function to delete the tweet
   const deleteTweet = async (tweetId) => {
     try {
       await axios.delete(`/api/tweet/deleteTweet/${tweetId}`);
@@ -83,45 +64,39 @@ function Profile() {
       console.error('Error deleting tweet:', error);
     }
   };
-
+  //function to open the update form
   const openUpdateForm = (tweetId, tweetText) => {
     setUpdateTweetStates((prevStates) => ({
       ...prevStates,
       [tweetId]: { isOpen: true, tweetText, tweetImage: null },
     }));
   };
-
+  //function to close the update form 
   const closeUpdateForm = (tweetId) => {
     setUpdateTweetStates((prevStates) => ({
       ...prevStates,
       [tweetId]: { isOpen: false, tweetText: "", tweetImage: null },
     }));
   };
-
+  //function to submit update form 
   const submitUpdateForm = async (tweetId) => {
     try {
       const formData = new FormData();
       formData.append("tweet", updateTweetStates[tweetId].tweetText);
       formData.append("postimage", updateTweetStates[tweetId].tweetImage);
-
       const response = await axios.put(`/api/tweet/updateTweet/${tweetId}`, formData);
-
       closeUpdateForm(tweetId);
-
       const updatedTweets = tweets.map((t) =>
         t._id === tweetId
           ? { ...t, tweet: updateTweetStates[tweetId].tweetText, postimage: response.data.postimage }
           : t
       );
-
       setTweets(updatedTweets);
     } catch (error) {
       console.error('Error updating tweet:', error);
     }
   };
-
-
-
+  //HTML side of the page
   return (
     <div className='profile-container'>
       <NavBar />

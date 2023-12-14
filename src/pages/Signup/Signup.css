@@ -1,62 +1,60 @@
-/* Signup.css (you can create a separate CSS file for signup or include it in your existing CSS file) */
-
+/*styling for the sign up container*/
 .signup-container {
     display: flex;
     height: 100vh;
 }
-
+/*styling for the left side*/
 .left-side {
     width: 70%;
-    background: url('src/Images/bg.png') center/cover no-repeat;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    justify-content: center;
+    align-items: center; 
 }
-
+/*styling for the right side*/
 .right-side {
     width: 30%;
     padding: 20px;
-    background: #ffffff; /* Light grey background for the right side */
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
+/*styling for the logo*/
 .logo-container {
     margin-bottom: 20px;
     width: 50%;
-    height: 50px; /* Set a specific height for better visualization */
+    height: 50px; 
     background: url('src/Images/logo.png') center/contain no-repeat;
-    box-sizing: border-box; /* Include the border in the overall width and height */
+    box-sizing: border-box;
 }
-
+/*styling for the logo*/
 .form-container {
     width: 80%;
 }
-
+/*styling for the lable*/
 .label {
     margin-bottom: 5px;
     font-weight: bold;
-    font-size: 14px; /* Adjust the font size for labels */
+    font-size: 14px; 
 }
-
+/*styling for the input field*/
 .input-field {
-    padding: 8px; /* Adjust the padding for smaller input boxes */
-    margin-bottom: 10px; /* Adjust the margin for smaller input boxes */
+    padding: 8px; 
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 6px; /* Adjust the border radius for smaller input boxes */
+    border-radius: 6px; 
     width: 100%;
-    font-size: 14px; /* Adjust the font size for input fields */
+    font-size: 14px; 
 }
-
+/*styling for the button container*/
 .button-container {
     display: flex;
     flex-direction: column;
 }
-
+/*styling for the signup*/
 .signup-button {
     background-color: #1da1f2;
     color: #fff;
@@ -65,7 +63,7 @@
     border-radius: 8px;
     cursor: pointer;
 }
-
+/*styling for the error message*/
 .error-message {
     color: red;
     margin-top: 10px;

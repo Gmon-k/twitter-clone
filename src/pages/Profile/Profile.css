@@ -1,104 +1,111 @@
-
-body{
-    background-color: #1DA1F2;
+/*styling for the body*/
+body {
+  background-color: #1DA1F2;
 }
-.profile-conatiner{
-    background-color: #1DA1F2;
-    margin: 0; 
-  }
-
-  .container-split {
-    display: flex;
-    min-height: 100%;
-  }
-  
-  
-  .left-panel-profile {
-    width: 40%;
-    box-sizing: border-box;
-     /* Left panel background color */
-
-  }
-
-  .white-box {
-    background-color: white;
-    border-radius: 10px; /* Adjust the value to change the curve of the edges */
-    box-shadow: 0 0 10px rgba(29, 68, 87, 0.1); /* Adjust the shadow properties */
-    padding: 20px; /* Adjust the padding as needed */
-    margin-top: 5px;
-    margin-left: 15px; /* Distance from the NavBar */
-    margin-right: 20px;
-    width:75% /* Distance from the right side */
-  }
-
-  .oval-image {
-    margin-top: 20px;
-    margin-left: 30%;
-    border-radius: 70%; /* Creates an oval shape */
-    width: 100px; /* Adjust the width as needed */
-    height: 100px; /* Adjust the height as needed */
-    object-fit: cover; /* Maintain aspect ratio and cover the content area */
-  }
-
-  .profile-text-content{
-    display: flex; /* Use flexbox to center text vertically */
-    flex-direction: column; /* Stack text vertically */
-    align-items: center; /
-  }
-
-  .button-profile {
-    background-color: #1DA1F2;  /* Twitter blue color */
-    color: #ffffff;  /* White text */
-    padding: 8px 16px;
-    border: none;
-    border-radius: 9999px;  /* Border radius to make it a rounded button */
-    cursor: pointer;
-    font-weight: bold;
+/*styling for the profile side*/
+.profile-conatiner {
+  background-color: #1DA1F2;
+  margin: 0;
 }
-
+/*styling for the container split*/
+.container-split {
+  display: flex;
+  min-height: 100%;
+}
+/*styling for the left side*/
+.left-panel-profile {
+  width: 40%;
+  box-sizing: border-box;
+}
+/*styling for the white box*/
+.white-box {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(29, 68, 87, 0.1);
+  padding: 20px;
+  margin-top: 5px;
+  margin-left: 15px;
+  margin-right: 20px;
+  width: 75%
+}
+/*styling for the oval profile image*/
+.oval-image {
+  margin-top: 20px;
+  margin-left: 30%;
+  border-radius: 70%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+/*styling for the profile text*/
+.profile-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;/
+}
+/*styling for the button*/
+.button-profile {
+  background-color: #1DA1F2;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-weight: bold;
+}
 .button-profile:hover {
-    background-color: #1990E5;  /* Darker shade on hover */
+  background-color: #1990E5;
 }
-  
+/*styling for the right side*/
 .right-panel-profile {
-    width: 60%;
-    box-sizing: border-box;
-  
-}
+  width: 60%;
+  box-sizing: border-box;
 
+}
+/*styling for the oval profile image*/
 .oval-image-tweet {
   margin-left: 5%;
-  border-radius: 40%; /* Creates an oval shape */
-  width: 20px; /* Adjust the width as needed */
-  height: 20px; /* Adjust the height as needed */
-  object-fit: cover; /* Maintain aspect ratio and cover the content area */
+  border-radius: 40%;
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
 }
-
+/*styling for the image tweet*/
 .post-image-tweet {
   max-width: 80%;
   height: auto;
   margin-top: 10px;
   border-radius: 8px;
 }
-
+/*styling for the timstamp*/
 .timestamp-tweet {
   font-style: italic;
   color: #888;
 }
-
-
+/*styling for the update tweet*/
 .button-update-profile {
-  background-color: #1DA1F2;  /* Twitter blue color */
-  color: #ffffff;  /* White text */
+  background-color: #1DA1F2;
+  color: #ffffff;
   padding: 8px 16px;
   border: none;
   font-size: 12px;
-  border-radius: 9999px;  /* Border radius to make it a rounded button */
+  border-radius: 9999px;
   cursor: pointer;
   font-weight: bold;
   margin-left: 20px;
 }
-
 .button-update-profile:hover {
-  background-color: #1990E5;  /* Darker shade on hover */
+  background-color: #1990E5;
+}
+/*styling for the mobile view*/
+@media screen and (min-width: 600px) {
+  .container-split {
+    flex-direction: row;
+  }
+  .left-panel-profile {
+    width: 40%;
+  }
+  .right-panel-profile {
+    width: 60%;
+  }
 }

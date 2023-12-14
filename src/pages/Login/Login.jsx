@@ -1,65 +1,58 @@
-// Login.jsx
-
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import "./Login.css";
-
+import twitterLogo from '../../Images/logo.png'
+import bg from '../../Images/bg.png'
+//pages for the Login
 export default function Login() {
-  const [loginFormState, setLoginFormState] = useState({});
-  const [errorDetailsState, setErrorDetailsState] = useState("");
+  const [loginFormState, setLoginFormState] = useState({});  //login form state
+  const [errorDetailsState, setErrorDetailsState] = useState(""); //error detail state
   const navigate = useNavigate();
-
+  //function to update the username
   function updateUserNameInState(event) {
     const username = event.target.value;
-
     const newLoginFormState = {
       password: loginFormState.password,
       username: username,
     };
-
     setLoginFormState(newLoginFormState);
   }
-
+  //function to update the password
   function updatePasswordInState(event) {
     const password = event.target.value;
-
     const newLoginFormState = {
       username: loginFormState.username,
       password: password,
     };
-
     setLoginFormState(newLoginFormState);
   }
-
+  //function for submit login
   async function submitLogin() {
     try {
-      const response = await axios.post('/api/user/login',loginFormState)
+      const response = await axios.post('/api/user/login', loginFormState)
       const username = response.data.username;
-      navigate(`/profile/${username}`);
+      navigate(`/home/${username}`);
     } catch (err) {
       setErrorDetailsState("Issue logging in, please try again :)");
     }
   }
-
+  //function to go to signup page
   function goToSignUp() {
     navigate("/signup");
   }
-
+  //for displaying the error message
   let errorMessage = null;
   if (errorDetailsState) {
     errorMessage = <div>{errorDetailsState}</div>;
   }
-
+ //HTML side of the page
   return (
     <div className="login-container">
-      <div className="left-side">
-        {/* Add background image styling here */}
-      </div>
+      <img src={bg} alt="bg" className="left-side" />
       <div className="right-side">
-        <div className="logo-container">
-          {/* Add your logo image */}
-        </div>
+        <img src={twitterLogo} alt="Logo" className="logo-container" />
+
         <div className="form-container">
           <div className="username-label">Username:</div>
           <input

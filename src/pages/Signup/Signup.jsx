@@ -2,6 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import './Signup.css'
+import twitterLogo from '../../Images/logo.png'
+import bg from '../../Images/bg.png'
+
 
 export default function Signup() {
     const [signupFormState, setSignupFormState] = useState({});
@@ -69,9 +72,9 @@ export default function Signup() {
 
     return (
         <div className="signup-container">
-        <div className="left-side"></div>
+        <img src={bg} alt="bg" className="left-side" />
         <div className="right-side">
-            <div className="logo-container"></div> {/* Add the logo container */}
+            <img src={twitterLogo} alt="Logo" className="logo-container" />
             <div className="form-container">
                 <div className="label">First Name:</div>
                 <input type='text' className="input-field" onInput={updateFirstNameInState} />

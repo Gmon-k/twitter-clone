@@ -1,63 +1,57 @@
-/* Welcome.css */
-
-
-
+/*styling for the setting container */
 .welcome-conatiner {
   height: 100%;
   margin: 0;
   background-color: #fff;
 }
-
+/*styling for the setting container */
 .container {
   display: flex;
   min-height: 100%;
 }
-
+/*styling for all the content on the left panel */
 .left-panel {
   flex: 35%;
   padding: 20px;
   box-sizing: border-box;
-  background-color: #1da1f2; /* Twitter blue */
+  background-color: #1da1f2; 
   color: rgb(255, 255, 255);
   height: 100vh;
 }
-
+/*styling for all the userdetails */
 .user-details {
   margin-top: 10px;
 }
-
+/*styling for all the right panel*/
 .right-panel {
   flex: 65%;
   padding: 20px;
   box-sizing: border-box;
 }
-
+/*styling for update section*/
 .update-section {
   margin-top: 20px;
 }
-
+/*styling for update section*/
 .update-section h2 {
   margin-bottom: 10px;
 }
-
+/*styling for update section*/
 .update-section label {
   display: block;
   margin-bottom: 10px;
 }
-
-/* Welcome.css */
-
+/*styling for input box*/
 .update-section input {
-  width: 80%; /* Use 100% width to fill the container */
-  padding: 12px; /* Adjust padding for better appearance */
+  width: 80%;
+  padding: 12px; 
   margin-bottom: 10px;
-  border: 1px solid #1da1f2; /* Add a border */
-  border-radius: 4px; /* Add border-radius for rounded corners */
-  box-sizing: border-box; /* Ensure padding and border are included in the total width */
-  font-size: 14px; /* Adjust font size */
+  border: 1px solid #1da1f2; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  font-size: 14px; 
 }
-
-
+/*styling for update section button*/
 .update-section button {
   background-color: #1da1f2;
   color: #fff;
@@ -66,33 +60,32 @@
   cursor: pointer;
   border-radius: 12px;
 }
-
-
+/*styling for the white box*/
 .white-box {
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px;
   border-radius: 8px;
 }
-
+/*styling for user info*/
 .user-info {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
-
+/*styling for the profile pic tweet*/
 .profile-pic-tweet {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   margin-right: 10px;
 }
-
+/*styling for the username*/
 .user-names {
   display: flex;
   flex-direction: column;
 }
-
+/*styling for the timestamp*/
 .timestamp {
   font-style: italic;
   color: #888;

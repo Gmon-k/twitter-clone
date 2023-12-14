@@ -13,6 +13,7 @@ import Setting from './pages/Setting/Setting.jsx';
 import Signup from './pages/Signup/Signup.jsx'
 import Profile from './pages/Profile/Profile.jsx';
 import Home from './pages/Home/Home.jsx';
+import Landingprofile from './pages/Landingprofile/Landingprofile.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,9 +36,18 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: '/profile/:username',
+    path: '/profile/:username', 
     element: <Profile/>
-  }
+  },
+  {
+    path: '/Landingprofile/:username',
+    element: <Landingprofile /> 
+  },
+  {
+    path: '/logout',
+    element: <Login /> 
+  },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

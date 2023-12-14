@@ -2,10 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import twitterLogo from '../Images/logo.png';
 import './StylesFolder/Navbar.css';
-
+//components for the different nav bar when the user isn't login
 const LoginNavbar = ({ loading }) => {
   const navigate = useNavigate();
-
+  //HTML code for it.
   return (
     <div className="navbar">
       {loading ? (
@@ -13,7 +13,6 @@ const LoginNavbar = ({ loading }) => {
       ) : (
         <>
           <div className="navbar-left">
-            {/* Add content for navbar-left if needed */}
           </div>
           <div className="navbar-center">
             <Link to="/" className="logo-link">
@@ -37,5 +36,4 @@ const LoginNavbar = ({ loading }) => {
     </div>
   );
 };
-
 export default LoginNavbar;

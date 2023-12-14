@@ -1,24 +1,22 @@
-/* Login.css */
-
+/*styling for the body*/
 body {
     margin: 0;
 }
-
+/*styling for the login main*/
 .login-container {
     display: flex;
     height: 100vh;
 }
-
+/*styling for the left-side*/
 .left-side {
     width: 70%;
-    background: url('src/Images/bg.png') center/cover no-repeat;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    justify-content: center; 
+    align-items: center; 
 }
-
+/*styling for the right-side*/
 .right-side {
     .right-side {
         width: 30%;
@@ -29,25 +27,24 @@ body {
         align-items: center;
     } 
 }
-
+/*styling for the logo-container*/
 .logo-container {
-    margin-bottom: 20px;
-    width: 50%;
-    height: 50px; /* Set a specific height for better visualization */
-    background: url('src/Images/logo.png') center/contain no-repeat;
-    box-sizing: border-box; /* Include the border in the overall width and height */
+    margin-bottom: 30px;
+    width: 20px;
+    height: 20px; 
+    box-sizing: border-box; 
 }
-
+/*styling for the form-container*/
 .form-container {
     width: 80%;
 }
-
+/*styling for the username,passweord labels*/
 .username-label,
 .password-label {
     margin-bottom: 5px;
     font-weight: bold;
 }
-
+/*styling for the input field*/
 .input-field {
     padding: 10px;
     margin-bottom: 15px;
@@ -55,24 +52,30 @@ body {
     border-radius: 8px;
     width: 100%;
 }
-
+/*styling for the button*/
 .button-container {
     display: flex;
     flex-direction: column;
 }
-
+/*styling for the login buttons*/
 .login-button,
 .create-account-button {
     background-color: #1da1f2;
     color: #fff;
     padding: 10px;
     border: none;
-    border-radius: 8px; /* Adjust the border radius */
+    border-radius: 8px;
     cursor: pointer;
 }
-
+/*styling for the button*/
 .create-account-button {
     background-color: transparent;
     color: #1da1f2;
     margin-top: 10px;
+}
+/*styling for the mobile display*/
+@media screen and (max-width: 600px) {
+    .logo-container {
+        width: 100%; 
+    }
 }
