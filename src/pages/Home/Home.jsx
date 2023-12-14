@@ -30,7 +30,7 @@ function Home() {
       try {
         const response = await axios.get(`/api/user/getUserDetails/${username}`);
         setUserDetails(response.data);
-        const tweetResponse = await axios.get(`/api/tweet/getTweetsByUsername/${username}`);
+        const tweetResponse = await axios.get(`/api/tweet/getAllTweets`);
         const sortedTweets = tweetResponse.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         setTweets(sortedTweets);
       } catch (error) {
